@@ -1,0 +1,76 @@
+
+
+
+/* =====================================================================
+   Nasci Imports — Design tokens (tema escuro)
+   ===================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* Cores da marca */
+  --cor-fundo: #000000;
+  --cor-destaque: #1bfd00;
+  --cor-destaque-hover: #45ff2e;
+  --cor-destaque-suave: rgba(27, 253, 0, 0.12);
+  --cor-destaque-borda: rgba(27, 253, 0, 0.4);
+  --cor-sobre-destaque: #000000;
+
+  /* Superfícies (cards, menus, inputs) */
+  --cor-superficie: #0d0d0d;
+  --cor-superficie-2: #1a1a1a;
+  --cor-superficie-3: #222222;
+  --cor-borda: #2a2a2a;
+  --cor-borda-forte: #3a3a3a;
+
+  /* Textos */
+  --cor-texto: #ffffff;
+  --cor-texto-suave: #a0a0a0;
+
+  /* Estados */
+  --cor-perigo: #ff4d4f;
+  --cor-perigo-suave: rgba(255, 77, 79, 0.12);
+  --cor-aviso: #ffb020;
+  --cor-aviso-suave: rgba(255, 176, 32, 0.12);
+  --cor-info: #3ba7ff;
+  --cor-info-suave: rgba(59, 167, 255, 0.12);
+  --cor-sucesso: var(--cor-destaque);
+  --cor-sucesso-suave: var(--cor-destaque-suave);
+
+  /* Tipografia */
+  --fonte: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fonte-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --texto-xs: 0.75rem;
+  --texto-sm: 0.875rem;
+  --texto-md: 1rem;
+  --texto-lg: 1.125rem;
+  --texto-xl: 1.375rem;
+  --texto-2xl: 1.75rem;
+  --texto-3xl: 2.25rem;
+
+  /* Espaçamentos */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8:5px
+
+  /* Bordas e sombras */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+  --sombra: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --sombra-destaque: 0 0 0 3px rgba(27, 253, 0, 0.35);
+
+  /* Layout */
+  --largura-max: 1200px;
+  --altura-header: 64px;
+  --largura-sidebar: 248px;
+  --transicao: 0.18s ease;
+  --z-header: 50;
+  --z-drawer: 90;
+  --z-modal: 100;
+}

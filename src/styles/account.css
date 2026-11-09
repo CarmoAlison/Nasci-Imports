@@ -1,0 +1,176 @@
+/* =====================================================================
+   Área do cliente (minha conta, pedidos, notificações)
+   ===================================================================== */
+.conta { padding-top: var(--esp-5); }
+.conta__topo { margin-bottom: var(--esp-4); }
+.conta__topo h1 { font-size: var(--texto-xl); }
+.conta__grid { display: grid; grid-template-columns: 1fr; gap: var(--esp-4); }
+
+/* Celular: abas roláveis na horizontal */
+.conta__nav {
+  display: flex;
+  gap: var(--esp-2);
+  overflow-x: auto;
+  padding-bottom: var(--esp-1);
+  scrollbar-width: thin;
+}
+.conta__link {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  padding: var(--esp-2) var(--esp-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--cor-borda);
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+  font-weight: 600;
+  font-size: var(--texto-sm);
+  white-space: nowrap;
+}
+.conta__link:hover { border-color: var(--cor-destaque-borda); text-decoration: none; }
+.conta__link.active {
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
+  background: var(--cor-destaque-suave);
+}
+.conta__conteudo { min-width: 0; }
+
+/* ---------- Lista de pedidos ---------- */
+.pedidos-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--esp-3); }
+.pedido-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+  color: var(--cor-texto);
+  position: relative;
+  padding-right: var(--esp-6);
+  transition: border-color var(--transicao);
+}
+.pedido-card:hover { border-color: var(--cor-destaque-borda); text-decoration: none; }
+.pedido-card__topo,
+.pedido-card__rodape { display: flex; justify-content: space-between; align-items: center; gap: var(--esp-2); flex-wrap: wrap; }
+.pedido-card__rodape strong { color: var(--cor-destaque); }
+.pedido-card__imagens { display: flex; gap: var(--esp-2); align-items: center; }
+.pedido-card__img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--cor-superficie-2);
+  border: 1px solid var(--cor-borda);
+}
+.pedido-card__img img,
+.pedido-card__img .product-image-placeholder { width: 100%; height: 100%; object-fit: cover; }
+.pedido-card__img .product-image-placeholder svg { width: 18px; height: 18px; }
+.pedido-card__mais { color: var(--cor-texto-suave); font-size: var(--texto-sm); }
+.pedido-card__msgs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  background: var(--cor-destaque);
+  color: var(--cor-sobre-destaque);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+}
+.pedido-card__seta { position: absolute; right: var(--esp-4); top: 50%; transform: translateY(-50%); color: var(--cor-texto-suave); }
+
+/* ---------- Detalhe do pedido ---------- */
+.pedido-detalhe__topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--esp-3);
+  flex-wrap: wrap;
+}
+.pedido-detalhe__status { display: flex; align-items: center; gap: var(--esp-2); }
+.pedido-detalhe__status .input { width: auto; min-width: 190px; }
+.pedido-detalhe__grid { display: grid; grid-template-columns: 1fr; gap: var(--esp-4); align-items: start; }
+
+/* Linha do tempo de status */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+}
+.timeline__passo {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  column-gap: var(--esp-3);
+  align-items: center;
+  color: var(--cor-texto-suave);
+  position: relative;
+}
+.timeline__ponto {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--cor-borda-forte);
+  background: var(--cor-fundo);
+  grid-row: span 2;
+}
+.timeline__passo.is-feito { color: var(--cor-texto); }
+.timeline__passo.is-feito .timeline__ponto { border-color: var(--cor-destaque); background: var(--cor-destaque); }
+.timeline__passo.is-atual .timeline__ponto { box-shadow: 0 0 0 4px var(--cor-destaque-suave); }
+.timeline__passo.is-atual .timeline__label { color: var(--cor-destaque); }
+.timeline__label { font-weight: 700; font-size: var(--texto-sm); }
+.timeline__data { grid-column: 2; color: var(--cor-texto-suave); font-size: var(--texto-xs); }
+
+.historico { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--esp-2); }
+.historico li { display: flex; align-items: center; gap: var(--esp-2); flex-wrap: wrap; }
+
+/* ---------- Favoritos ---------- */
+.favorito { position: relative; }
+.favorito__remover {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  width: 34px;
+  height: 34px;
+}
+
+/* ---------- Página de notificações ---------- */
+.notif-pagina { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--esp-2); }
+.notif-pagina__item {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  padding: var(--esp-2) var(--esp-3);
+}
+.notif-pagina__item.is-nao-lida { border-color: var(--cor-destaque-borda); background: var(--cor-destaque-suave); }
+.notif-pagina__conteudo {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--esp-3);
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: var(--esp-2) 0;
+  min-width: 0;
+}
+.notif-pagina__conteudo > span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.notif-pagina__conteudo .texto-suave { font-size: var(--texto-sm); }
+.notif-pagina__icone { color: var(--cor-destaque); flex-shrink: 0; margin-top: 2px; }
+
+/* =====================================================================
+   Desktop
+   ===================================================================== */
+@media (min-width: 960px) {
+  .conta__grid { grid-template-columns: 220px 1fr; align-items: start; }
+  .conta__nav {
+    flex-direction: column;
+    position: sticky;
+    top: calc(var(--altura-header) + var(--esp-4));
+    overflow: visible;
+  }
+  .conta__link { border-color: transparent; background: transparent; }
+  .conta__link:hover { background: var(--cor-superficie); }
+  .pedido-detalhe__grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+}
